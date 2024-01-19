@@ -17,6 +17,15 @@ Ready to build your own QR Code generator with a GUI? Let's get started!
    pip install qrcode
    pip install tk
    ```
+## Instructions
+1. Import the necessary libraries, in this case `qrcode`, `tkinter` and `messagebox` from the `tkinter` library
+1. Design your GUI! It can be as simple as the following:<br><img width="250" alt="image" src="https://github.com/theyoungmaker/python-qr-code-generator/assets/130747987/84a67df9-b7a9-4d9d-8659-97444be6f11a">
+1. Capture the user input for both website as well as the file name for your QR code! You will need 2 widgets from the `tkinter` library to do this! (Recall how you can do this; what widget would you need?)
+1. Create a function called `generate_qr()` that gets the user input from the 2 widgets you created!
+1. Now read up on how you can create the qr code using the [`qrcode` library](https://pypi.org/project/qrcode/)
+1. Your `generate_qr()` should have some data validation (using if-else block) to check if the user has indeed input a url and a file name before you create the qr code, else you should display a message to the user to let them know they need to input both the url and file name
+1. If you did it correctly, the QR Code png file should be saved in the same directory as your code!
+
 
 ## Running the GUI Application
 
