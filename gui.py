@@ -1,14 +1,31 @@
 import tkinter as tk
 from tkinter import messagebox
+from PIL import Image, ImageTk
+import qrcode
 
 
 def generate_qr():
-    website = url_entry.get
+    website = url_entry.get()
     filename = filename_entry.get()
     if website and filename:
-        pass
+        qr = qrcode.make(website)
+        qr.save(filename + ".png")
+        messagebox.showinfo("Sucess", "Image has been created")
+        show_qr_code(filename + ".png", website)
     else:
         messagebox.showerror("Error", "Please enter both website URL and filename.")
+
+def show_qr_code(img_path, website):
+    qr_window = tk.Toplevel(window)
+    qr_window.title("Generated QRCode")
+    img = Image.open(img_path)
+    img = ImageTk.PhotoImage(img)
+    img_label = tk.Label(qr_window, image = img)
+    img_label.image = img
+    img_label.pack()
+
+    message = tk.Label(qr_window, text = f"Your website: {website}\n Your QR Code file name: {img_path}")
+    message.pack()
 
 window = tk.Tk()
 window.title("QR Code Generator")
